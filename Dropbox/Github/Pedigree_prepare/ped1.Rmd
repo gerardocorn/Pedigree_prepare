@@ -1,0 +1,49 @@
+---
+title: "Pedigree data managment"
+author: "Gerardo Mamani"
+date: "2/11/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Create pedigre data
+
+First column is animal identification, second is the sire identification and the third is of the mother.
+
+```{r, comment=NA}
+pedigree<-read.table(header=T, text="
+                                    ID	SIRE	DAM
+                                    799	34	336
+                                    800	35	215
+                                    801	37	NA
+                                    802	NA	308
+                                    803	78	682
+                                    804	78	686
+                                    805	11	232")
+  
+
+
+```
+```{r, comment=NA}
+pedigree
+```
+
+Count dimension of the data
+
+```{r, comment=NA}
+dim(pedigree)
+```
+
+count sire 
+
+```{r, comment=NA}
+sum(!is.na(pedigree$SIRE))
+```
+ count NA in sire column
+
+```{r, comment=NA}
+sum(is.na(pedigree$SIRE))
+```
